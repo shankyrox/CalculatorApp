@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/CalculatorApp/CalculatorApp.o
+	${OBJECTDIR}/CalculatorApp/Source/CalculatorApp.o
 
 
 # C Compiler Flags
@@ -62,10 +62,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/calculatorapp: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/calculatorapp ${OBJECTFILES} ${LDLIBSOPTIONS} `wx-config --libs`
 
-${OBJECTDIR}/CalculatorApp/CalculatorApp.o: CalculatorApp/CalculatorApp.cpp
-	${MKDIR} -p ${OBJECTDIR}/CalculatorApp
+${OBJECTDIR}/CalculatorApp/Source/CalculatorApp.o: CalculatorApp/Source/CalculatorApp.cpp
+	${MKDIR} -p ${OBJECTDIR}/CalculatorApp/Source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CalculatorApp/CalculatorApp.o CalculatorApp/CalculatorApp.cpp
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CalculatorApp/Source/CalculatorApp.o CalculatorApp/Source/CalculatorApp.cpp
 
 # Subprojects
 .build-subprojects:

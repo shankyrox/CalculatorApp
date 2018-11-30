@@ -30,6 +30,7 @@ EVT_MENU(wxID_EXIT, CalcMainFrame::OnExit)
 EVT_MENU(wxID_ABOUT, CalcMainFrame::OnAbout)
 wxEND_EVENT_TABLE()
 wxIMPLEMENT_APP(CalculatorApp);
+
 bool CalculatorApp::OnInit()
 {
 	CalcMainFrame *frame = new CalcMainFrame("Simple Calculator", wxPoint(50, 50), wxSize(450, 340));
@@ -39,19 +40,22 @@ bool CalculatorApp::OnInit()
 CalcMainFrame::CalcMainFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 	: wxFrame(NULL, wxID_ANY, title, pos, size)
 {
-	auto menuFile = std::make_unique<wxMenu>();
+//	auto menuFile = std::make_unique<wxMenu>();
+    wxMenu *menuFile = new wxMenu;
 	menuFile->Append(static_cast<int>(MenuID::ID_Hello), "&Hello...\tCtrl-H",
 		"Help string shown in status bar for this menu item");
 	menuFile->AppendSeparator();
 	menuFile->Append(wxID_EXIT);
 
-	auto menuHelp = std::make_unique<wxMenu>();
+//	auto menuHelp = std::make_unique<wxMenu>();
+    wxMenu* menuHelp = new wxMenu;
 	menuHelp->Append(wxID_ABOUT);
 
-	auto menuBar = std::make_unique<wxMenuBar>();
-	menuBar->Append(menuFile.release(), "&File");
-	menuBar->Append(menuHelp.release(), "&Help");
-	SetMenuBar(menuBar.release());
+//	auto menuBar = std::make_unique<wxMenuBar>();
+    wxMenuBar* menuBar = new wxMenuBar;
+	menuBar->Append(menuFile, "&File");
+	menuBar->Append(menuHelp, "&Help");
+	SetMenuBar(menuBar);
 	CreateStatusBar();
 	SetStatusText("Welcome to Simple Cacli !");
 }

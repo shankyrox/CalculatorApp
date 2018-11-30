@@ -12,7 +12,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>CalculatorApp/CalculatorApp.cpp</itemPath>
+      <itemPath>CalculatorApp/Source/CalculatorApp.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -47,7 +47,10 @@
           <commandLine>`wx-config --libs`</commandLine>
         </linkerTool>
       </compileType>
-      <item path="CalculatorApp/CalculatorApp.cpp" ex="false" tool="1" flavor2="0">
+      <item path="CalculatorApp/Source/CalculatorApp.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -76,7 +79,10 @@
           <commandLine>`wx-config --libs`</commandLine>
         </linkerTool>
       </compileType>
-      <item path="CalculatorApp/CalculatorApp.cpp" ex="false" tool="1" flavor2="0">
+      <item path="CalculatorApp/Source/CalculatorApp.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
     </conf>
   </confs>
