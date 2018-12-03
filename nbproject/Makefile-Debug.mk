@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/CalculatorApp/Source/Button.o \
+	${OBJECTDIR}/CalculatorApp/Source/CAMainFrame.o \
 	${OBJECTDIR}/CalculatorApp/Source/CalculatorApp.o
 
 
@@ -62,10 +64,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/calculatorapp: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/calculatorapp ${OBJECTFILES} ${LDLIBSOPTIONS} `wx-config --libs`
 
+${OBJECTDIR}/CalculatorApp/Source/Button.o: CalculatorApp/Source/Button.cpp
+	${MKDIR} -p ${OBJECTDIR}/CalculatorApp/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -ICalculatorApp/Include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CalculatorApp/Source/Button.o CalculatorApp/Source/Button.cpp
+
+${OBJECTDIR}/CalculatorApp/Source/CAMainFrame.o: CalculatorApp/Source/CAMainFrame.cpp
+	${MKDIR} -p ${OBJECTDIR}/CalculatorApp/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -ICalculatorApp/Include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CalculatorApp/Source/CAMainFrame.o CalculatorApp/Source/CAMainFrame.cpp
+
 ${OBJECTDIR}/CalculatorApp/Source/CalculatorApp.o: CalculatorApp/Source/CalculatorApp.cpp
 	${MKDIR} -p ${OBJECTDIR}/CalculatorApp/Source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CalculatorApp/Source/CalculatorApp.o CalculatorApp/Source/CalculatorApp.cpp
+	$(COMPILE.cc) -g -ICalculatorApp/Include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CalculatorApp/Source/CalculatorApp.o CalculatorApp/Source/CalculatorApp.cpp
 
 # Subprojects
 .build-subprojects:

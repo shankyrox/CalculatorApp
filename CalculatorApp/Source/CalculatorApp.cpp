@@ -1,74 +1,37 @@
 // wxWidgets "Hello world" Program
 // For compilers that support precompilation, includes "wx/wx.h".
-#include <wx/wxprec.h>
-#ifndef WX_PRECOMP
-#include <wx/wx.h>
-#endif
 
-class CalculatorApp : public wxApp
-{
+#include "CalculatorApp.h"
+#include "Button.h"
+#include "CAMainFrame.h"
+
+class CalculatorApp : public wxApp {
 public:
-	virtual bool OnInit();
+    virtual bool OnInit();
 };
-class CalcMainFrame : public wxFrame
-{
-public:
-	CalcMainFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
-private:
-	void OnHello(wxCommandEvent& event);
-	void OnExit(wxCommandEvent& event);
-	void OnAbout(wxCommandEvent& event);
-	wxDECLARE_EVENT_TABLE();
-};
-enum class MenuID
-{
-	ID_Hello = 1
-};
-wxBEGIN_EVENT_TABLE(CalcMainFrame, wxFrame)
-EVT_MENU(static_cast<int>(MenuID::ID_Hello), CalcMainFrame::OnHello)
-EVT_MENU(wxID_EXIT, CalcMainFrame::OnExit)
-EVT_MENU(wxID_ABOUT, CalcMainFrame::OnAbout)
-wxEND_EVENT_TABLE()
+
 wxIMPLEMENT_APP(CalculatorApp);
 
-bool CalculatorApp::OnInit()
-{
-	CalcMainFrame *frame = new CalcMainFrame("Simple Calculator", wxPoint(50, 50), wxSize(450, 340));
-	frame->Show(true);
-	return true;
+bool CalculatorApp::OnInit() {
+    CalcMainFrame *frame = new CalcMainFrame("Simple Calculator", wxPoint(-1, -1), wxSize(450, 340));
+    frame->Show(true);
+    return true;
 }
-CalcMainFrame::CalcMainFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
-	: wxFrame(NULL, wxID_ANY, title, pos, size)
-{
-//	auto menuFile = std::make_unique<wxMenu>();
-    wxMenu *menuFile = new wxMenu;
-	menuFile->Append(static_cast<int>(MenuID::ID_Hello), "&Hello...\tCtrl-H",
-		"Help string shown in status bar for this menu item");
-	menuFile->AppendSeparator();
-	menuFile->Append(wxID_EXIT);
 
-//	auto menuHelp = std::make_unique<wxMenu>();
-    wxMenu* menuHelp = new wxMenu;
-	menuHelp->Append(wxID_ABOUT);
+// start IdGenerator
+int IdGenerator::count = 1;     // static member of this class 
+std::queue<int> IdGenerator::available_ids;
 
-//	auto menuBar = std::make_unique<wxMenuBar>();
-    wxMenuBar* menuBar = new wxMenuBar;
-	menuBar->Append(menuFile, "&File");
-	menuBar->Append(menuHelp, "&Help");
-	SetMenuBar(menuBar);
-	CreateStatusBar();
-	SetStatusText("Welcome to Simple Cacli !");
+IdGenerator::IdGenerator() {
+    if(!available_ids.empty()) {
+        curr_id = available_ids.front();
+        available_ids.pop();
+    }
+    else
+        curr_id = count;
+    count++;
 }
-void CalcMainFrame::OnExit(wxCommandEvent& event)
-{
-	Close(true);
-}
-void CalcMainFrame::OnAbout(wxCommandEvent& event)
-{
-	wxMessageBox("This is a Simple Calci App",
-		"About Simple Calculator", wxOK | wxICON_INFORMATION);
-}
-void CalcMainFrame::OnHello(wxCommandEvent& event)
-{
-	wxLogMessage("Hello world from Shanky!");
+
+IdGenerator::~IdGenerator() {
+    available_ids.push(curr_id);
 }

@@ -4,6 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>CalculatorApp/Include/Button.h</itemPath>
+      <itemPath>CalculatorApp/Include/CAMainFrame.h</itemPath>
+      <itemPath>CalculatorApp/Include/CalculatorApp.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +15,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>CalculatorApp/Source/Button.cpp</itemPath>
+      <itemPath>CalculatorApp/Source/CAMainFrame.cpp</itemPath>
       <itemPath>CalculatorApp/Source/CalculatorApp.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -41,12 +46,34 @@
         <ccTool>
           <standard>11</standard>
           <commandlineTool>g++</commandlineTool>
+          <incDir>
+            <pElem>CalculatorApp/Include</pElem>
+          </incDir>
           <commandLine>`wx-config --cxxflags` </commandLine>
         </ccTool>
         <linkerTool>
           <commandLine>`wx-config --libs`</commandLine>
         </linkerTool>
       </compileType>
+      <item path="CalculatorApp/Include/Button.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CalculatorApp/Include/CAMainFrame.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="CalculatorApp/Include/CalculatorApp.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="CalculatorApp/Source/Button.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CalculatorApp/Source/CAMainFrame.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
       <item path="CalculatorApp/Source/CalculatorApp.cpp"
             ex="false"
             tool="1"
@@ -79,6 +106,25 @@
           <commandLine>`wx-config --libs`</commandLine>
         </linkerTool>
       </compileType>
+      <item path="CalculatorApp/Include/Button.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CalculatorApp/Include/CAMainFrame.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="CalculatorApp/Include/CalculatorApp.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="CalculatorApp/Source/Button.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CalculatorApp/Source/CAMainFrame.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
       <item path="CalculatorApp/Source/CalculatorApp.cpp"
             ex="false"
             tool="1"
