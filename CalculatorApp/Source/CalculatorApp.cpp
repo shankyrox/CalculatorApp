@@ -13,8 +13,9 @@ public:
 wxIMPLEMENT_APP(CalculatorApp);
 
 bool CalculatorApp::OnInit() {
-    CalcMainFrame *frame = new CalcMainFrame("Simple Calculator", wxPoint(-1, -1), wxSize(450, 340));
-    frame->Show(true);
+    CAMainFrameIf *frame = new CalcMainFrame("Simple Calculator", wxPoint(-1, -1), wxSize(450, 340));
+//    CalcMainFrame *frame = new CalcMainFrame("Simple Calculator", wxPoint(-1, -1), wxSize(450, 340));
+    frame->draw();
     return true;
 }
 

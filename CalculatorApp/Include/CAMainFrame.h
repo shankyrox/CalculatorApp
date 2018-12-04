@@ -14,6 +14,9 @@
 #ifndef CAMAINFRAME_H
 #define CAMAINFRAME_H
 
+#include "CalculatorApp.h"
+#include "Button.h"
+
 class CAMainFrameIf {
 public: 
     virtual void draw()=0;
@@ -29,6 +32,7 @@ private:
     void OnExit(wxCommandEvent& event);
     void OnAbout(wxCommandEvent& event);
     wxDECLARE_EVENT_TABLE();
+    std::unique_ptr<Button> button;
 };
 
 #endif /* CAMAINFRAME_H */

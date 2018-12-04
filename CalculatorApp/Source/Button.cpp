@@ -7,24 +7,29 @@
 #include "Button.h"
 
 CAwxButton1::CAwxButton1(wxFrame* frame, std::string text):
-        frame(frame), text(text){}
+        frame(frame), text(text){    
+    wx_button = new wxButton(frame, getId(), text);
+}
 
 void CAwxButton1::setText(std::string text) {
     
 }
 
 void CAwxButton1::draw() {
-    wx_button = new wxButton(frame, getId(), text, wxDefaultPosition, wxDefaultSize, 0);
+    // , wxDefaultPosition, wxDefaultSize, 0
 }
 
 void CAwxButton1::hide() {
     
-    
+}
+
+wxButton* CAwxButton1::getWxButtonPtr() {
+    return wx_button;
 }
 
 // start ButtonDecorator 
 void ButtonDecorator::draw() {
-    Button::draw();
+    button_ptr->draw();
 }
 
 

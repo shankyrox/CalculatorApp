@@ -30,8 +30,9 @@ class CAwxButton1 : public Button, public IdGenerator {
 public:
     CAwxButton1(wxFrame* frame, std::string text);
     virtual void setText(std::string text);
-    virtual void draw();
+    virtual void draw() override;
     virtual void hide();
+    wxButton* getWxButtonPtr();
 };
 
 class ButtonDecorator : public Button {
